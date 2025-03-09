@@ -1,54 +1,70 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class RouletteWheelController : MonoBehaviour
 {
     [Header("Referanslar")]
-    public Transform ball;               // Topun Transform'u
-    public Rigidbody ballRigidbody;      // Topun Rigidbody'si
+    public Transform ball;
+    public Rigidbody ballRigidbody;
     public SphereCollider ballCollider;     
     public PhysicMaterial ballInSlotColliderMaterial;     
     public PhysicMaterial ballRotateColliderMaterial;     
-    public Transform wheel;              // Rulet tekerleğinin Transform'u
-    public Transform wheelCenter;        // Rulet tekerleğinin merkez noktası
+    public Transform wheel;
+    public Transform wheelCenter;
 
     [Header("Ayarlar")]
-    public Transform spinStartPos;       // Topun spin başlangıç pozisyonu
-    public float wheelSpinSpeed = 90f;   // Tekerleğin başlangıç dönüş hızı (derece/saniye)
-    public float maxOrbitDuration = 25f;     // Topun dairesel hareket süresi
-    public float minOrbitDuration = 15f;     // Topun dairesel hareket süresi
+    public Transform spinStartPos;
+    public float wheelSpinSpeed = 90f;
+    public float maxOrbitDuration = 25f;
+    public float minOrbitDuration = 15f;
     
     [Header("Top Ayarları")]
-    public float initialBallSpeed = 800f;   // Topun başlangıç açısal hızı
-    public float tangentialForce = 200f;    // Sürekli uygulanan teğetsel kuvvet
-    public float centerForce = 150f;        // Merkeze doğru uygulanan kuvvet
-    public float slowdownRate = 0.95f;      // Topun zaman içinde yavaşlama oranı
-    public float minVelocityToStop = 0.5f;  // Topun durması için gereken minimum hız
-    public float optimalDistance = 2.0f;    // Topun merkeze ideal uzaklığı
-    public float distanceForceMultiplier = 10f;  // Mesafeye göre kuvvet çarpanı
+    public float initialBallSpeed = 800f;
+    public float tangentialForce = 200f;
+    public float centerForce = 150f;
+    public float slowdownRate = 0.95f;
+    public float minVelocityToStop = 0.5f;
+    public float optimalDistance = 2.0f;
+    public float distanceForceMultiplier = 10f;
     
     [Header("Hedef Noktası Ayarları")]
-    public Transform targetPosition;     // Topun yönlendirileceği hedef nokta
-    public float targetForceStartTime = 0.7f;  // Hedef kuvvetin başlama zamanı (orbit süresinin yüzdesi)
-    public float initialTargetForce = 50f;     // Başlangıç hedef kuvveti
-    public float targetForceGrowthRate = 1.5f;  // Hedef kuvvetin büyüme oranı
-    public float maxTargetForce = 500f;         // Maksimum hedef kuvveti
-    public AnimationCurve targetForceCurve = AnimationCurve.EaseInOut(0, 0, 1, 1); // Hedef kuvvet eğrisi
+    public bool isDeterministic = true;
+    public int currentTargetNumber=0;
+    public float targetForceStartTime = 0.7f;
+    public float initialTargetForce = 50f;
+    public float targetForceGrowthRate = 1.5f;
+    public float maxTargetForce = 500f;
+    public AnimationCurve targetForceCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+    
+    public float upwardForceInterval = 0.5f;      // Yukarı doğru kuvvetin uygulanma sıklığı (saniye)
+    public float upwardForceMagnitude = 50f;      // Yukarı doğru kuvvetin şiddeti
+    public float targetDistanceForceMultiplier = 2f;  // Hedefe yaklaştıkça kuvveti artırma çarpanı
+    public float minTargetDistance = 0.3f;        // Kuvvet artışının başlayacağı minimum mesafe
     
     private bool isSpinning = false;
     private bool isSlowingDown = false;
     private bool isTargetingEnabled = false;
     private float currentTangentialForce;
     private float targetForceTime = 0f;
-    private float targetForceMaxTime = 2f;  // Hedef kuvvetin maksimum uygulama süresi
+    private float targetForceMaxTime = 2f;
+    private float upwardForceTimer = 0f;
     
+    private Transform targetPosition;
+    private RouletteWheelNumberController _numberController;
+
+    private void Awake()
+    {
+        _numberController = GetComponent<RouletteWheelNumberController>();
+    }
+
     private void Start()
     {
-        // Ball rigidbody özelliklerini ayarlayalım
         if (ballRigidbody != null)
         {
             ballRigidbody.useGravity = true;
-            ballRigidbody.drag = 0.2f;  // Hava sürtünmesi
+            ballRigidbody.drag = 0.2f;
             ballRigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
             ballRigidbody.interpolation = RigidbodyInterpolation.Interpolate;
         }
@@ -59,6 +75,7 @@ public class RouletteWheelController : MonoBehaviour
         if (isSpinning)
         {
             ApplyConstantForces();
+            ApplyPeriodicUpwardForce();
         }
         if (isTargetingEnabled)
         {
@@ -66,27 +83,86 @@ public class RouletteWheelController : MonoBehaviour
         }
     }
     
-    // Sürekli kuvvet uygulama
+    private void ApplyPeriodicUpwardForce()
+    {
+        upwardForceTimer += Time.fixedDeltaTime;
+        
+        if (upwardForceTimer >= upwardForceInterval)
+        {
+            ballRigidbody.AddForce(Vector3.up * upwardForceMagnitude, ForceMode.Impulse);
+            upwardForceTimer = 0f;
+        }
+    }
+    
+    [ContextMenu("Spin")]
+    public void StartRoulette()
+    {
+        if (!isSpinning)
+        {
+            isSpinning = true;
+            isSlowingDown = false;
+            isTargetingEnabled = false;
+            targetForceTime = 0f;
+            upwardForceTimer = 0f;
+            currentTangentialForce = tangentialForce;
+            ballRigidbody.drag = 0;
+            ballRigidbody.angularDrag = 0;
+    
+            SetColliderMaterial(false);
+            ball.parent = transform;
+            ball.gameObject.SetActive(false);
+            ball.position = spinStartPos.position;
+            ball.gameObject.SetActive(true);
+            
+            int chosenNumber = isDeterministic ? currentTargetNumber : Random.Range(0, 37);
+            StartCoroutine(RouletteSequence(chosenNumber));
+        }
+    }
+
+    private IEnumerator RouletteSequence(int chosenNumber)
+    {
+        targetPosition = _numberController.GetNumberTransform(chosenNumber);
+        Debug.Log($"Chosen Number: {chosenNumber}");
+        ballRigidbody.velocity = Vector3.zero;
+        ballRigidbody.angularVelocity = Vector3.zero;
+        float orbitDuration = Random.Range(minOrbitDuration, maxOrbitDuration);
+        StartCoroutine(SpinWheel(orbitDuration));
+        
+        Vector3 directionFromCenter = (ball.position - wheelCenter.position).normalized;
+        Vector3 tangentDirection = Vector3.Cross(Vector3.up, directionFromCenter);
+        
+        
+        ballRigidbody.AddForce(tangentDirection * initialBallSpeed, ForceMode.Impulse);
+        
+        yield return new WaitForSeconds(orbitDuration * 0.3f);
+        
+        isSlowingDown = true;
+        if (targetPosition != null)
+        {
+            isTargetingEnabled = true;
+        }
+        
+        while (isSpinning)
+        {
+            yield return null;
+        }
+    }
+    
     private void ApplyConstantForces()
     {
-        // Merkeze olan vektör
         Vector3 toCenter = wheelCenter.position - ball.position;
-        toCenter.y = 0; // Sadece yatay düzlemde
+        toCenter.y = 0;
         float distanceToCenter = toCenter.magnitude;
         
-        // Teğet yönde kuvvet hesaplama (merkez etrafında dönmesi için)
         Vector3 tangentDirection = Vector3.Cross(Vector3.up, toCenter.normalized);
         tangentDirection.y = -0.1f;
-        // Merkeze olan mesafeye göre içeri/dışarı kuvvet uygulama
         float distanceDiff = distanceToCenter - optimalDistance;
         Vector3 centerwardForce = toCenter.normalized * distanceDiff * distanceForceMultiplier;
         
-        // Yavaşlama modu aktifse, teğetsel kuvveti azalt
         if (isSlowingDown)
         {
             currentTangentialForce *= slowdownRate * Time.fixedDeltaTime;
             
-            // Eğer yeterince yavaşladıysa, durdur
             if (ballRigidbody.velocity.magnitude < minVelocityToStop && !isTargetingEnabled)
             {
                 isSpinning = false;
@@ -96,48 +172,46 @@ public class RouletteWheelController : MonoBehaviour
             }
         }
         
-        // Kuvvetleri uygula
         ballRigidbody.AddForce(tangentDirection * currentTangentialForce, ForceMode.Force);
         ballRigidbody.AddForce(centerwardForce, ForceMode.Force);
     }
     
-    // Hedef noktasına doğru kuvvet uygulama
     private void ApplyTargetForce()
     {
         if (targetPosition == null) return;
         
-        // Hedefe olan vektör
         Vector3 toTarget = targetPosition.position - ball.position;
         
-        // Y eksenini biraz yukarı doğru ayarla ki top yüksekliğe de ulaşabilsin
         toTarget.y = Mathf.Max(0, toTarget.y);
         
-        // Hedef ile topun arasındaki mesafe
         float distanceToTarget = toTarget.magnitude;
         
-        // Hedef kuvvetin zamanla artması
         targetForceTime += Time.fixedDeltaTime;
         float normalizedTime = Mathf.Clamp01(targetForceTime / targetForceMaxTime);
         
-        // Animasyon eğrisinden kuvvet çarpanı al
         float forceMultiplier = targetForceCurve.Evaluate(normalizedTime);
         
-        // Zamana ve mesafeye bağlı olarak artan bir kuvvet hesapla
         float currentTargetForce = Mathf.Lerp(initialTargetForce, maxTargetForce, forceMultiplier);
         
-        // Eğer hedefe çok yaklaşıldıysa, kuvveti azalt (doğal duruş için)
-        if (distanceToTarget < 0.5f)
+        // Hedefe yaklaştıkça kuvveti artır
+        if (distanceToTarget < 1.0f)
         {
-            currentTargetForce *= distanceToTarget * 2;
+            // Mesafe azaldıkça kuvvet artar
+            float distanceFactor = Mathf.Clamp01(1.0f - (distanceToTarget - minTargetDistance) / (1.0f - minTargetDistance));
+            currentTargetForce *= (1.0f + distanceFactor * targetDistanceForceMultiplier);
         }
         
-        // Hedef kuvveti uygula
+        // Eğer hedefe çok yaklaşıldıysa (0.2f'den daha yakın), kuvveti azalt
+        // Bu, topun hedefe sert çarpmasını ve sekip gitmesini önler
+        if (distanceToTarget < 0.2f)
+        {
+            currentTargetForce *= distanceToTarget * 5;
+        }
+        
         ballRigidbody.AddForce(toTarget.normalized * currentTargetForce, ForceMode.Force);
         
-        // Eğer hedefe ulaşıldıysa ve top yeterince yavaşsa, tam hedef pozisyonuna taşı
         if (distanceToTarget < 0.1f && ballRigidbody.velocity.magnitude < 1.0f)
         {
-            ball.position = targetPosition.position;
             ballRigidbody.velocity = Vector3.zero;
             ballRigidbody.angularVelocity = Vector3.zero;
             ballRigidbody.drag = 11;
@@ -153,70 +227,13 @@ public class RouletteWheelController : MonoBehaviour
     {
         isTargetingEnabled = false;
     }
-
-    // Bu metot, tüm süreci başlatır.
-    [ContextMenu("Spin")]
-    public void StartRoulette()
-    {
-        if (!isSpinning)
-        {
-            isSpinning = true;
-            isSlowingDown = false;
-            isTargetingEnabled = false;
-            targetForceTime = 0f;
-            currentTangentialForce = tangentialForce;
-            ballRigidbody.drag = 0;
-            ballRigidbody.angularDrag = 0;
     
-            SetColliderMaterial(false);
-            ball.parent = transform;
-
-            StartCoroutine(RouletteSequence());
-        }
-    }
-
-    private IEnumerator RouletteSequence()
-    {
-        // Başlangıç pozisyonuna taşı
-        ball.position = spinStartPos.position;
-        ballRigidbody.velocity = Vector3.zero;
-        ballRigidbody.angularVelocity = Vector3.zero;
-        float orbitDuration = Random.Range(minOrbitDuration, maxOrbitDuration);
-        // Wheel dönmeye başlasın
-        StartCoroutine(SpinWheel(orbitDuration));
-        
-        // Topa başlangıç kuvveti uygula
-        Vector3 directionFromCenter = (ball.position - wheelCenter.position).normalized;
-        Vector3 tangentDirection = Vector3.Cross(Vector3.up, directionFromCenter);
-        
-        
-        ballRigidbody.AddForce(tangentDirection * initialBallSpeed, ForceMode.Impulse);
-        
-        // Belli bir süre sonra yavaşlamaya başla
-        yield return new WaitForSeconds(orbitDuration * 0.3f);
-        
-        isSlowingDown = true;
-        // Hedefleme modunu aktifleştir
-        if (targetPosition != null)
-        {
-            isTargetingEnabled = true;
-        }
-        
-        // Top tamamen durana kadar bekle
-        while (isSpinning)
-        {
-            yield return null;
-        }
-    }
-    
-    // Wheel'ın ease-out deceleration ile dönmesini sağlayan coroutine.
     private IEnumerator SpinWheel(float totalDuration)
     {
         float elapsed = 0f;
         while (elapsed < totalDuration)
         {
             float t = Mathf.Clamp01(elapsed / totalDuration);
-            // Ease-out: t=0 => faktör=1, t=1 => faktör=0
             float easedFactor = 1 - EaseOut(t);
             float currentSpeed = wheelSpinSpeed * easedFactor;
             wheel.Rotate(0, currentSpeed * Time.deltaTime, 0, Space.Self);
@@ -224,13 +241,12 @@ public class RouletteWheelController : MonoBehaviour
             yield return null;
         }
     }
-
+    
     private void SetColliderMaterial(bool isInSlot)
     {
         ballCollider.material = isInSlot? ballInSlotColliderMaterial:ballRotateColliderMaterial;
     }
 
-    // Ease-out cubic fonksiyonu: 1 - (1-t)^3
     private float EaseOut(float t)
     {
         return 1 - Mathf.Pow(1 - t, 3);
