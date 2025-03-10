@@ -1264,7 +1264,7 @@ MonoBehaviour:
   minOrbitDuration: 15
   initialBallSpeed: 10
   tangentialForce: 13
-  centerForce: 5
+  centerForce: 100
   slowdownRate: 3
   minVelocityToStop: 1
   optimalDistance: 2
