@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Chip türlerini tanımlayan enum
-public enum ChipType { Ten, Fifty, Hundred, TwoHundred }
 
 public class ChipPool : MonoBehaviour
 {
@@ -70,26 +68,26 @@ public class ChipPool : MonoBehaviour
     }
 
     // İstenilen chip tipine ait havuzdan, inactive olan objeyi döndürür.
-    public GameObject GetChip(ChipType chipType)
+    public GameObject GetChip(Chips chipType)
     {
         List<GameObject> selectedPool = null;
         GameObject prefab = null;
         // Hangi chip tipinin havuzundan çekileceğini switch ile belirliyoruz.
         switch (chipType)
         {
-            case ChipType.Ten:
+            case Chips.Ten:
                 selectedPool = poolTen;
                 prefab = chipPrefabTen;
                 break;
-            case ChipType.Fifty:
+            case Chips.Fifty:
                 selectedPool = poolFifty;
                 prefab = chipPrefabFifty;
                 break;
-            case ChipType.Hundred:
+            case Chips.Hundered:
                 selectedPool = poolHundred;
                 prefab = chipPrefabHundred;
                 break;
-            case ChipType.TwoHundred:
+            case Chips.TwoHundered:
                 selectedPool = poolTwoHundred;
                 prefab = chipPrefabTwoHundred;
                 break;

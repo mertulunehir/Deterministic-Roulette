@@ -8,4 +8,7 @@ public class Chip : MonoBehaviour
     
     public Chips ChipType  => chipType;
     
+    [HideInInspector]
+    public TableNumberPlace currentPlace;
+    
 }
