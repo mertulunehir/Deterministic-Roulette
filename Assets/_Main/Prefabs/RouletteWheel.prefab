@@ -1263,7 +1263,7 @@ MonoBehaviour:
   maxOrbitDuration: 25
   minOrbitDuration: 15
   initialBallSpeed: 10
-  tangentialForce: 13
+  tangentialForce: 25
   centerForce: 100
   slowdownRate: 3
   minVelocityToStop: 1
@@ -1942,7 +1942,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: -0.97599983, z: 3.554}
-  m_LocalScale: {x: 0.33522293, y: 0.33522293, z: 0.33522293}
+  m_LocalScale: {x: 0.25522196, y: 0.25522196, z: 0.25522196}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 13468330149763747}
@@ -2026,7 +2026,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8505387056227366052}
   serializedVersion: 4
-  m_Mass: 1.7
+  m_Mass: 2.3
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}

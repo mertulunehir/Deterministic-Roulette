@@ -849,7 +849,7 @@ GameObject:
   - component: {fileID: 421771993}
   - component: {fileID: 421771992}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2968,6 +2968,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 882873560}
   m_CullTransparentMesh: 1
+--- !u!4 &921644093 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 13468330149763747, guid: b76c966dad49c9b4fa8cbb38cabf1061,
+    type: 3}
+  m_PrefabInstance: {fileID: 8033206095528144244}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &970475197
 GameObject:
   m_ObjectHideFlags: 0
@@ -3266,6 +3272,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1045699487}
   m_CullTransparentMesh: 1
+--- !u!1 &1048210815
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1048210817}
+  - component: {fileID: 1048210816}
+  m_Layer: 0
+  m_Name: ChipPooler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1048210816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048210815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 488ebca3c95ebed4eb8d5986c3ca05fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chipPrefabTen: {fileID: 9200418986636104719, guid: f3188ab172a17774b96ed500ea4f28d7,
+    type: 3}
+  chipPrefabFifty: {fileID: 972462847540215785, guid: 31efedc46908b094abc1e94380c463d3,
+    type: 3}
+  chipPrefabHundred: {fileID: 4642839634174625062, guid: 63e2273f6958ac542bfd6064c06081fe,
+    type: 3}
+  chipPrefabTwoHundred: {fileID: 624080652098469971, guid: a550dc2727b2b34478aa7f77e13051e3,
+    type: 3}
+  initialPoolCount: 20
+--- !u!4 &1048210817
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048210815}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.6677203, y: 5.9413548, z: 0.78812337}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1052984843
 GameObject:
   m_ObjectHideFlags: 0
@@ -3892,7 +3951,7 @@ GameObject:
   - component: {fileID: 1190644419}
   - component: {fileID: 1190644418}
   m_Layer: 5
-  m_Name: 100button (1)
+  m_Name: 200button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4651,6 +4710,7 @@ GameObject:
   - component: {fileID: 1463470504}
   - component: {fileID: 1463470503}
   - component: {fileID: 1463470502}
+  - component: {fileID: 1463470506}
   m_Layer: 5
   m_Name: BetCanvas
   m_TagString: Untagged
@@ -4741,6 +4801,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1463470506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463470501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78c273c9d7182e448988ca0ca0f7b3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasParent: {fileID: 62516510}
+  tenButton: {fileID: 1698757027}
+  fiftyButton: {fileID: 122204581}
+  hunderedButton: {fileID: 1745548050}
+  twoHunderedButton: {fileID: 1190644418}
+  cancelBetButton: {fileID: 1831729360}
+  spinButton: {fileID: 73845342}
+  buttonOutlineOpenColor: {r: 0.69411767, g: 0.9607843, b: 0.5568628, a: 1}
+  buttonOutlineCloseColor: {r: 0.69411767, g: 0.9607843, b: 0.5568628, a: 0}
 --- !u!1 &1569031587
 GameObject:
   m_ObjectHideFlags: 0
@@ -4875,6 +4956,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1569031587}
   m_CullTransparentMesh: 1
+--- !u!1 &1581306438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1581306439}
+  - component: {fileID: 1581306440}
+  m_Layer: 0
+  m_Name: RouletteBetController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1581306439
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581306438}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 543450653180304879}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1581306440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581306438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1722e2112269bc149824f2546e9aff9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1596763930
 GameObject:
   m_ObjectHideFlags: 0
@@ -6280,6 +6405,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1611499763}
+  - {fileID: 921644093}
+  - {fileID: 1581306439}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &809925287574132268
@@ -6558,12 +6685,12 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 543450653180304879}
     m_Modifications:
     - target: {fileID: 13468330149763747, guid: b76c966dad49c9b4fa8cbb38cabf1061,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.82
+      value: 7.82
       objectReference: {fileID: 0}
     - target: {fileID: 13468330149763747, guid: b76c966dad49c9b4fa8cbb38cabf1061,
         type: 3}
@@ -6573,27 +6700,27 @@ PrefabInstance:
     - target: {fileID: 13468330149763747, guid: b76c966dad49c9b4fa8cbb38cabf1061,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.89
+      value: 1.89
       objectReference: {fileID: 0}
     - target: {fileID: 13468330149763747, guid: b76c966dad49c9b4fa8cbb38cabf1061,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 13468330149763747, guid: b76c966dad49c9b4fa8cbb38cabf1061,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 13468330149763747, guid: b76c966dad49c9b4fa8cbb38cabf1061,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 13468330149763747, guid: b76c966dad49c9b4fa8cbb38cabf1061,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 13468330149763747, guid: b76c966dad49c9b4fa8cbb38cabf1061,
         type: 3}
@@ -6610,35 +6737,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 843471402565044375, guid: b76c966dad49c9b4fa8cbb38cabf1061,
-        type: 3}
-      propertyPath: m_Mass
-      value: 2.3
-      objectReference: {fileID: 0}
     - target: {fileID: 4712872693539889626, guid: b76c966dad49c9b4fa8cbb38cabf1061,
         type: 3}
       propertyPath: m_Name
       value: RouletteWheel
-      objectReference: {fileID: 0}
-    - target: {fileID: 5927779102508504909, guid: b76c966dad49c9b4fa8cbb38cabf1061,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.25522196
-      objectReference: {fileID: 0}
-    - target: {fileID: 5927779102508504909, guid: b76c966dad49c9b4fa8cbb38cabf1061,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.25522196
-      objectReference: {fileID: 0}
-    - target: {fileID: 5927779102508504909, guid: b76c966dad49c9b4fa8cbb38cabf1061,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.25522196
-      objectReference: {fileID: 0}
-    - target: {fileID: 6555775196154611943, guid: b76c966dad49c9b4fa8cbb38cabf1061,
-        type: 3}
-      propertyPath: tangentialForce
-      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6674,4 +6776,4 @@ SceneRoots:
   - {fileID: 543450653180304879}
   - {fileID: 1208166100}
   - {fileID: 2002594467}
-  - {fileID: 8033206095528144244}
+  - {fileID: 1048210817}
