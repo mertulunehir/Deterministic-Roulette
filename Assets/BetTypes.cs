@@ -6,8 +6,11 @@ public enum BetTypes
     CornerBetFour,
     SixLineBet,
     ColumnBetOnTwelveNumbers,
-    HighOrLow,
-    RedOrBlack,
-    OddOrEven,
+    High,
+    Low,
+    Red,
+    Black,
+    Odd,
+    Even,
     DozenBet
 }
