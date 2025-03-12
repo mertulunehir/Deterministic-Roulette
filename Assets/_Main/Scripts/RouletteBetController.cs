@@ -47,10 +47,25 @@ public class RouletteBetController : MonoBehaviour
     
     private void OnCancelBet(object[] obj)
     {
+        // Find all active chips and return them to the pool
+        RemoveAllChipsFromTable();
+        
         // Clear all bets
         ClearAllBets();
         currentBetAmount = 0;
         Debug.Log("All bets canceled");
+    }
+    
+    private void RemoveAllChipsFromTable()
+    {
+        // Find all TableNumberPlace components in the scene
+        TableNumberPlace[] allPlaces = FindObjectsOfType<TableNumberPlace>();
+        
+        // Remove all chips from each place
+        foreach (TableNumberPlace place in allPlaces)
+        {
+            place.ReturnAllChipsToPool();
+        }
     }
     
     private void OnSpinWheel(object[] obj)
@@ -84,7 +99,7 @@ public class RouletteBetController : MonoBehaviour
         _currentSelectedChip = (Chips)obj[0];
     }
     
-    private void OnChipPlaced(object[] obj) 
+    private void OnChipPlaced(object[] obj)
     {
         if (obj.Length >= 2)
         {

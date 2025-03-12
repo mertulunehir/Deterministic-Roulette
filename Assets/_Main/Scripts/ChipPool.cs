@@ -112,7 +112,21 @@ public class ChipPool : MonoBehaviour
     // Kullanım sonrası chipi havuza geri vermek için kullanılabilir.
     public void ReturnChip(GameObject chip)
     {
-        chip.SetActive(false);
-        // İsteğe bağlı: chip konumunu resetleyebilirsiniz.
+        if (chip != null)
+        {
+            // Reset the chip position before deactivating
+            chip.transform.position = transform.position;
+        
+            // Get the Chip component
+            Chip chipComponent = chip.GetComponent<Chip>();
+            if (chipComponent != null)
+            {
+                // Reset the current place reference
+                chipComponent.currentPlace = null;
+            }
+        
+            // Deactivate the chip
+            chip.SetActive(false);
+        }
     }
 }

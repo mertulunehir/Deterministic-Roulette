@@ -79,6 +79,27 @@ public class TableNumberPlace : MonoBehaviour
     // Toplam bahis tutarı
     public int CurrentBetAmount => currentBetAmount;
     
+    // Tüm chipleri havuza geri döndürür
+    public void ReturnAllChipsToPool()
+    {
+        // Stakteki tüm chipleri döndür
+        while (chipStack.Count > 0)
+        {
+            Chip chip = chipStack.Pop();
+            if (chip != null)
+            {
+                // ChipPool'a geri döndür
+                ChipPool.Instance.ReturnChip(chip.gameObject);
+                
+                // Trigger removal event
+                EventManager.TriggerEvent(GameEvents.OnChipRemoved, this, chip.ChipType);
+            }
+        }
+        
+        // Reset bet amount
+        currentBetAmount = 0;
+    }
+    
     // Yardımcı: Chip değerini döndürür
     private int GetChipValue(Chips chipType)
     {

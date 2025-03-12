@@ -240,6 +240,16 @@ public class RouletteWheelController : MonoBehaviour
         
     }
     
+    // After spin is complete, this method is triggered
+    public void ResetRoulette()
+    {
+        // Reset any necessary wheel state
+        isSpinning = false;
+        isSlowingDown = false;
+        isTargetingEnabled = false;
+    }
+    
+    
     private IEnumerator SpinWheel(float totalDuration)
     {
         float elapsed = 0f;
