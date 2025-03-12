@@ -104,4 +104,13 @@ public class BetCanvasController : MonoBehaviour
         canvasParent.SetActive(false);
         EventManager.TriggerEvent(GameEvents.OnSpinButtonClicked);
     }
+    
+    public void ShowBetCanvas()
+    {
+        if (canvasParent != null)
+        {
+            canvasParent.SetActive(true);
+        }
+    }
+    
 }

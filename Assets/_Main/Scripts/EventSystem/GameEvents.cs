@@ -2,5 +2,9 @@ public enum GameEvents
 {
     OnGameBetChanged,
     OnCancelBetButtonClicked,
-    OnSpinButtonClicked
+    OnSpinButtonClicked,
+    OnChipPlaced,
+    OnChipRemoved,
+    OnWinningsCalculated,
+    OnSpinFinished
 }

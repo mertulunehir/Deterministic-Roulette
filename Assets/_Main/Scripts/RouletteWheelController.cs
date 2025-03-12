@@ -115,6 +115,7 @@ public class RouletteWheelController : MonoBehaviour
             ball.gameObject.SetActive(true);
             
             int chosenNumber = isDeterministic ? currentTargetNumber : Random.Range(0, 37);
+            currentTargetNumber = chosenNumber;
             StartCoroutine(RouletteSequence(chosenNumber));
         }
     }
@@ -225,7 +226,18 @@ public class RouletteWheelController : MonoBehaviour
     
     private void DisableTargeting()
     {
+        if (!isTargetingEnabled)
+            return;
+        
         isTargetingEnabled = false;
+        
+        // Get the winning number and trigger the event
+        int winningNumber = currentTargetNumber;
+        Debug.Log($"Ball landed on number: {winningNumber}");
+    
+        // Trigger the spin finished event
+        EventManager.TriggerEvent(GameEvents.OnSpinFinished, winningNumber);
+        
     }
     
     private IEnumerator SpinWheel(float totalDuration)

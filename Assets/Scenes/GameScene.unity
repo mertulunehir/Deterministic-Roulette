@@ -8965,6 +8965,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 3
   connectedNumbers: 11000000120000001400000015000000
+--- !u!114 &1065279425 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6555775196154611943, guid: b76c966dad49c9b4fa8cbb38cabf1061,
+    type: 3}
+  m_PrefabInstance: {fileID: 8033206095528144244}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 829bbf9a73232db4a9edb834a652669e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1090778337
 GameObject:
   m_ObjectHideFlags: 0
@@ -13291,6 +13303,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1722e2112269bc149824f2546e9aff9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wheelController: {fileID: 1065279425}
+  straightBetMultiplier: 35
+  splitBetMultiplier: 17
+  streetBetMultiplier: 11
+  cornerBetMultiplier: 8
+  sixLineBetMultiplier: 5
+  columnBetMultiplier: 2
+  dozenBetMultiplier: 2
+  evenOddRedBlackHighLowMultiplier: 1
 --- !u!114 &1581306441
 MonoBehaviour:
   m_ObjectHideFlags: 0
