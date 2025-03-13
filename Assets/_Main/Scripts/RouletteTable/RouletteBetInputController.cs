@@ -3,10 +3,8 @@ using UnityEngine;
 
 public class RouletteBetInputController : MonoBehaviour
 {
-    // UI'dan veya başka yerden güncellenebilecek seçili chip değeri
     private Chips _currentSelectedChip = Chips.Ten;
 
-    // Sürüklenen chip referansı
     private Chip draggingChip = null;
     private Vector3 dragOffset;
     private Vector3 initialTouchPosition;
@@ -18,22 +16,21 @@ public class RouletteBetInputController : MonoBehaviour
     private bool isLongPressing = false;
     private TableNumberPlace pressedPlace = null;
 
-    // Chip sürüklemenin başladığı orijinal bahis alanı
     private TableNumberPlace originPlace = null;
-    // Sürükleme sırasında tespit edilen geçerli snap hedefi
+
     private TableNumberPlace currentSnapPlace = null;
 
-    // Drag mesafe eşik değeri (ekran piksel cinsinden)
+
     [SerializeField] private float dragThreshold = 20f;
-    // Sadece "place" layer'ındaki objeleri hedeflemek için layer maskesi
+
     [SerializeField] private LayerMask placeLayerMask;
     
-    // Reference to MoneyCanvasController to check total balance
     private MoneyCanvasController moneyController;
+    private bool _canClick = true;
     
     private void Awake()
     {
-        // Find the MoneyCanvasController in the scene
+        //TODO : 
         moneyController = FindObjectOfType<MoneyCanvasController>();
         if (moneyController == null)
         {
@@ -44,6 +41,18 @@ public class RouletteBetInputController : MonoBehaviour
     private void OnEnable()
     {
         EventManager.Subscribe(GameEvents.OnGameBetChanged, OnBetChanged);
+        EventManager.Subscribe(GameEvents.OnStatisticPanelOpened,OnStatisticPanelOpened);
+        EventManager.Subscribe(GameEvents.OnStatisticPanelClosed,OnStatisticPanelClosed);
+    }
+
+    private void OnStatisticPanelClosed(object[] obj)
+    {
+        _canClick = true;
+    }
+
+    private void OnStatisticPanelOpened(object[] obj)
+    {
+        _canClick = false;
     }
 
     private void OnBetChanged(object[] obj)
@@ -58,6 +67,9 @@ public class RouletteBetInputController : MonoBehaviour
     
     void Update()
     {
+        if (!_canClick)
+            return;
+        
         // Check for long press if we're tracking a press
         if (pressedPlace != null && !isLongPressing && !isDragging)
         {
@@ -91,13 +103,13 @@ public class RouletteBetInputController : MonoBehaviour
             }
         }
         
-        // Mobil dokunma kontrolü
+        // Mobil Input
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
             ProcessTouch(touch.phase, touch.position);
         }
-        else // PC/Editor için mouse kontrolü
+        else // PC/Editor Input
         {
             if (Input.GetMouseButtonDown(0))
                 ProcessTouch(TouchPhase.Began, Input.mousePosition);
@@ -133,10 +145,8 @@ public class RouletteBetInputController : MonoBehaviour
                 break;
                 
             case TouchPhase.Moved:
-                // If we're already dragging a chip, move it
                 if (draggingChip != null)
                 {
-                    // Drag mesafesini kontrol et
                     if (!isDragging && Vector3.Distance(screenPos, initialTouchPosition) > dragThreshold)
                     {
                         isDragging = true;
@@ -144,7 +154,7 @@ public class RouletteBetInputController : MonoBehaviour
                     
                     if (isDragging)
                     {
-                        // Chip pointer'ı takip etsin
+                        //TODO: 
                         Plane plane = new Plane(Vector3.up, new Vector3(0, draggingChip.transform.position.y, 0));
                         if (plane.Raycast(ray, out float distance))
                         {
@@ -153,7 +163,7 @@ public class RouletteBetInputController : MonoBehaviour
                             draggingChip.transform.position = worldPos;
                         }
                         
-                        // Snap için: pointer'ın altındaki TableNumberPlace tespit edilsin
+                        
                         if (Physics.Raycast(ray, out hit, Mathf.Infinity, placeLayerMask))
                         {
                             TableNumberPlace snapPlace = hit.collider.GetComponent<TableNumberPlace>();
@@ -175,21 +185,19 @@ public class RouletteBetInputController : MonoBehaviour
                 bool wasDragging = isDragging;
                 bool wasLongPressing = isLongPressing;
                 
-                // Reset tracking variables
                 isDragging = false;
                 isLongPressing = false;
                 
                 // If this was a simple tap (not a drag or long press)
                 if (!wasDragging && !wasLongPressing && pressedPlace != null)
                 {
-                    // This was a simple tap, place a chip
                     pressedPlace.PlaceBet(_currentSelectedChip);
                     Debug.Log("Simple tap detected, placing new chip");
                 }
+                
                 // If we were dragging a chip
                 else if (draggingChip != null)
                 {
-                    // Sürükleme yapıldıysa: geçerli snap hedefi varsa chip oraya bırakılır, yoksa orijinal alana geri gönderilir.
                     bool chipPlaced = false;
                     if (currentSnapPlace != null)
                     {
@@ -204,7 +212,6 @@ public class RouletteBetInputController : MonoBehaviour
                     }
                 }
                 
-                // Temizleme
                 draggingChip = null;
                 originPlace = null;
                 currentSnapPlace = null;

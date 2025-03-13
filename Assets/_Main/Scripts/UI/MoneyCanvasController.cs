@@ -6,30 +6,38 @@ using TMPro;
 
 public class MoneyCanvasController : MonoBehaviour
 {
-    [Header("UI Referansları")]
     [SerializeField] private TextMeshProUGUI balanceText;
     [SerializeField] private GameObject winningPanel;
     [SerializeField] private TextMeshProUGUI winningNumberText;
     [SerializeField] private TextMeshProUGUI winningAmountText;
     
-    [Header("Ayarlar")]
+    [Header("Settings")]
     [SerializeField] private int startingBalance = 1000;
-    [SerializeField] private float winningPanelDisplayTime = 5f; // Kazanç panelinin ekranda kalma süresi
+    [SerializeField] private float winningPanelDisplayTime = 5f; 
     
-    // Para durumu
     private int currentBalance;
     private int currentBetAmount;
     
-    // Coroutine referansı
     private Coroutine hideWinningPanelCoroutine;
+    
+    
+    private SaveManager saveManager;
     
     private void Awake()
     {
-        // Başlangıç bakiyesini ayarla
-        currentBalance = startingBalance;
+        saveManager = SaveManager.Instance;
+        
+        if (saveManager != null)
+        {
+            currentBalance = saveManager.GetCurrentBalance();
+        }
+        else
+        {
+            currentBalance = startingBalance;
+        }
+        
         UpdateBalanceDisplay();
         
-        // Kazanç panelini başlangıçta gizle
         if (winningPanel)
         {
             winningPanel.SetActive(false);
@@ -38,27 +46,28 @@ public class MoneyCanvasController : MonoBehaviour
     
     private void OnEnable()
     {
-        // Event'lere abone ol
         EventManager.Subscribe(GameEvents.OnSpinButtonClicked, OnSpinStarted);
         EventManager.Subscribe(GameEvents.OnWinningsCalculated, OnWinningsCalculated);
         EventManager.Subscribe(GameEvents.OnChipPlaced, OnBetChanged);
         EventManager.Subscribe(GameEvents.OnChipRemoved, OnBetChanged);
         EventManager.Subscribe(GameEvents.OnCancelBetButtonClicked, OnBetCancelled);
+        EventManager.Subscribe(GameEvents.OnBalanceUpdated, OnBalanceUpdated);
+        EventManager.Subscribe(GameEvents.OnGameLoaded, OnGameLoaded);
     }
     
     private void OnDisable()
     {
-        // Event aboneliklerini kaldır
         EventManager.Unsubscribe(GameEvents.OnSpinButtonClicked, OnSpinStarted);
         EventManager.Unsubscribe(GameEvents.OnWinningsCalculated, OnWinningsCalculated);
         EventManager.Unsubscribe(GameEvents.OnChipPlaced, OnBetChanged);
         EventManager.Unsubscribe(GameEvents.OnChipRemoved, OnBetChanged);
         EventManager.Unsubscribe(GameEvents.OnCancelBetButtonClicked, OnBetCancelled);
+        EventManager.Unsubscribe(GameEvents.OnBalanceUpdated, OnBalanceUpdated);
+        EventManager.Unsubscribe(GameEvents.OnGameLoaded, OnGameLoaded);
     }
     
     private void OnBetChanged(object[] obj)
     {
-        // BetCanvasController'dan toplam bahis miktarını al
         BetCanvasController betCanvas = FindObjectOfType<BetCanvasController>();
         if (betCanvas != null)
         {
@@ -68,7 +77,6 @@ public class MoneyCanvasController : MonoBehaviour
     
     private void OnBetCancelled(object[] obj)
     {
-        // Bahisler iptal edildiğinde miktarı sıfırla
         currentBetAmount = 0;
     }
     
@@ -80,16 +88,18 @@ public class MoneyCanvasController : MonoBehaviour
             currentBetAmount = betCanvas.CurrentBetAmount;
         }
         
-        // Bahis tutarını bakiyeden düş
         currentBalance -= currentBetAmount;
         UpdateBalanceDisplay();
         
-        // Kazanç panelini gizle (eğer gösteriliyorsa)
+        if (saveManager != null)
+        {
+            
+        }
+        
         if (winningPanel && winningPanel.activeSelf)
         {
             winningPanel.SetActive(false);
             
-            // Eğer çalışan bir coroutine varsa durdur
             if (hideWinningPanelCoroutine != null)
             {
                 StopCoroutine(hideWinningPanelCoroutine);
@@ -106,13 +116,30 @@ public class MoneyCanvasController : MonoBehaviour
             int winningAmount = (int)obj[1];
             int newBalance = (int)obj[2];
             
-            // Bakiyeyi güncelle
             currentBalance = newBalance;
             UpdateBalanceDisplay();
             
-            // Kazanç panelini güncelle ve göster
             UpdateWinningPanel(winningNumber, winningAmount);
             ShowWinningPanel();
+        }
+    }
+    
+    private void OnBalanceUpdated(object[] obj)
+    {
+        if (obj.Length > 0 && obj[0] is int)
+        {
+            int newBalance = (int)obj[0];
+            currentBalance = newBalance;
+            UpdateBalanceDisplay();
+        }
+    }
+    
+    private void OnGameLoaded(object[] obj)
+    {
+        if (saveManager != null)
+        {
+            currentBalance = saveManager.GetCurrentBalance();
+            UpdateBalanceDisplay();
         }
     }
     
@@ -152,7 +179,6 @@ public class MoneyCanvasController : MonoBehaviour
         {
             winningPanel.SetActive(true);
             
-            // Paneli belirli bir süre sonra gizleyecek coroutine'i başlat
             if (hideWinningPanelCoroutine != null)
             {
                 StopCoroutine(hideWinningPanelCoroutine);
@@ -174,7 +200,6 @@ public class MoneyCanvasController : MonoBehaviour
         hideWinningPanelCoroutine = null;
     }
     
-    // Public metotlar
     
     public int GetCurrentBalance()
     {
@@ -184,6 +209,17 @@ public class MoneyCanvasController : MonoBehaviour
     public void AddFunds(int amount)
     {
         currentBalance += amount;
+        UpdateBalanceDisplay();
+        
+        if (saveManager != null)
+        {
+            EventManager.TriggerEvent(GameEvents.OnBalanceUpdated, currentBalance);
+        }
+    }
+    
+    public void SetBalance(int newBalance)
+    {
+        currentBalance = newBalance;
         UpdateBalanceDisplay();
     }
     

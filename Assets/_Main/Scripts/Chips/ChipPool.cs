@@ -7,17 +7,15 @@ public class ChipPool : MonoBehaviour
     // Singleton instance
     public static ChipPool Instance;
 
-    [Header("Chip Prefabları")]
+    [Header("Chip Prefabs")]
     public GameObject chipPrefabTen;
     public GameObject chipPrefabFifty;
     public GameObject chipPrefabHundred;
     public GameObject chipPrefabTwoHundred;
 
-    [Header("Pool Ayarları")]
-    // Her chip tipi için oluşturulacak başlangıç adedi
+    [Header("Pool Settings")]
     public int initialPoolCount = 10;
 
-    // Her chip tipi için ayrı havuz listeleri
     private List<GameObject> poolTen = new List<GameObject>();
     private List<GameObject> poolFifty = new List<GameObject>();
     private List<GameObject> poolHundred = new List<GameObject>();
@@ -25,7 +23,6 @@ public class ChipPool : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton kontrolü
         if (Instance == null)
         {
             Instance = this;
@@ -38,7 +35,6 @@ public class ChipPool : MonoBehaviour
         InitializePools();
     }
 
-    // Her chip tipi için havuzu başlatır
     private void InitializePools()
     {
         for (int i = 0; i < initialPoolCount; i++)
@@ -67,12 +63,10 @@ public class ChipPool : MonoBehaviour
         }
     }
 
-    // İstenilen chip tipine ait havuzdan, inactive olan objeyi döndürür.
     public GameObject GetChip(Chips chipType)
     {
         List<GameObject> selectedPool = null;
         GameObject prefab = null;
-        // Hangi chip tipinin havuzundan çekileceğini switch ile belirliyoruz.
         switch (chipType)
         {
             case Chips.Ten:
@@ -93,7 +87,6 @@ public class ChipPool : MonoBehaviour
                 break;
         }
 
-        // Havuzdaki inactive objeyi döndür.
         foreach (var obj in selectedPool)
         {
             if (!obj.activeInHierarchy)
@@ -102,30 +95,24 @@ public class ChipPool : MonoBehaviour
             }
         }
         
-        // Eğer havuzda kullanılabilir obje yoksa, yeni obje oluşturup havuza ekle.
         GameObject newObj = Instantiate(prefab,transform);
         newObj.SetActive(false);
         selectedPool.Add(newObj);
         return newObj;
     }
 
-    // Kullanım sonrası chipi havuza geri vermek için kullanılabilir.
     public void ReturnChip(GameObject chip)
     {
         if (chip != null)
         {
-            // Reset the chip position before deactivating
             chip.transform.position = transform.position;
         
-            // Get the Chip component
             Chip chipComponent = chip.GetComponent<Chip>();
             if (chipComponent != null)
             {
-                // Reset the current place reference
                 chipComponent.currentPlace = null;
             }
         
-            // Deactivate the chip
             chip.SetActive(false);
         }
     }

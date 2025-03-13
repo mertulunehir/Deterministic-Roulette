@@ -8,5 +8,11 @@ public enum GameEvents
     OnWinningsCalculated,
     OnSpinFinished,
     OnEnableBetCanvas,
-    OnInsufficientFunds
+    OnInsufficientFunds,
+    OnGameHistoryUpdated,
+    OnBalanceUpdated,
+    OnGameLoaded,
+    OnGameSaved,
+    OnStatisticPanelOpened,
+    OnStatisticPanelClosed,
 }

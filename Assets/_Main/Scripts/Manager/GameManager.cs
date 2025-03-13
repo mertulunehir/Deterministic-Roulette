@@ -12,9 +12,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] private MoneyCanvasController moneyController;
     
     [Header("Game Settings")]
-    [SerializeField] private float gameRestartDelay = 3f; // Yeni turu başlatmadan önce bekleme süresi
+    [SerializeField] private float gameRestartDelay = 3f;
     
     private bool isGameInProgress = false;
+    private SaveManager saveManager;
+    
+    private void Awake()
+    {
+        // Get SaveManager reference
+        saveManager = SaveManager.Instance;
+        if (saveManager == null)
+        {
+            Debug.LogWarning("SaveManager not found, game progress will not be saved");
+        }
+    }
     
     private void OnEnable()
     {
@@ -41,9 +52,6 @@ public class GameManager : MonoBehaviour
         
         isGameInProgress = true;
         
-        
-        
-        // Tekeri döndürmeye başla
         if (wheelController != null)
         {
             wheelController.StartRoulette();
@@ -64,85 +72,40 @@ public class GameManager : MonoBehaviour
             winningNumber = (int)obj[0];
             Debug.Log($"Spin bitti. Kazanan numara: {winningNumber}");
         }
-        
-        // Bu noktada kamera kontrolcüsü otomatik olarak ball kamerasına geçecek
     }
     
     private void OnWinningsCalculated(object[] obj)
     {
-        // Bu noktada kazançlar hesaplanmış ve UI güncellenmiş olmalı
         
-        // Belirli bir süre sonra oyunu sıfırla
+        EventManager.TriggerEvent(GameEvents.OnGameHistoryUpdated);
+        
         StartCoroutine(RestartGameAfterDelay(gameRestartDelay));
     }
     
     private void OnInsufficientFunds(object[] obj)
     {
-        // Yetersiz bakiye durumunda yapılacak işlemler
         Debug.LogWarning("Yetersiz bakiye! Ek bakiye yüklemeniz gerekiyor.");
-        
-        // Burada ek bakiye yükleme ekranı veya uyarı gösterebilirsiniz
-        // Örnek: ShowInsufficientFundsWarning();
     }
     
     private IEnumerator RestartGameAfterDelay(float delay)
     {
-        // Belirtilen süre kadar bekle
         yield return new WaitForSeconds(delay);
         
-        // Tekerleği sıfırla
-        if (wheelController != null)
-        {
-            wheelController.ResetRoulette();
-        }
-        
-        // BetCanvas'ı tekrar aç
         if (betCanvasController != null)
         {
             betCanvasController.ShowBetCanvas(null);
         }
         
-        // Table kamerasına geri dön (kamera kontrolcüsü bunu otomatik yapabilir, 
-        // ancak burada da kontrol edelim)
-        if (cameraController != null)
+
+        yield return new WaitForSeconds(0.2f);
+
+        if (wheelController != null)
         {
-            cameraController.SwitchToTableCamera();
+            wheelController.ResetRoulette();
         }
         
         isGameInProgress = false;
         
         Debug.Log("Oyun yeniden başladı");
-    }
-    
-    // Test amaçlı para ekleme/çıkarma metotları
-    
-    public void AddFunds(int amount)
-    {
-        if (moneyController != null)
-        {
-            moneyController.AddFunds(amount);
-            Debug.Log($"${amount} bakiyeye eklendi.");
-        }
-    }
-    
-    // Oyunu başlatan metot (gerektiğinde dışarıdan çağrılabilir)
-    public void StartGame()
-    {
-        if (!isGameInProgress)
-        {
-            // BetCanvas'ı aç
-            if (betCanvasController != null)
-            {
-                betCanvasController.ShowBetCanvas(null);
-            }
-            
-            // Table kamerasına geç
-            if (cameraController != null)
-            {
-                cameraController.SwitchToTableCamera();
-            }
-            
-            Debug.Log("Oyun başladı, bahis yapabilirsiniz.");
-        }
     }
 }

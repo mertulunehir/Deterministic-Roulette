@@ -8,7 +8,6 @@ public class RouletteBetController : MonoBehaviour
     [SerializeField] private RouletteWheelController wheelController;
     [SerializeField] private MoneyCanvasController moneyController;
     
-    // Bet reward multipliers for different bet types
     [Header("Bet Reward Multipliers")]
     [SerializeField] private int straightBetMultiplier = 35;
     [SerializeField] private int splitBetMultiplier = 17;
@@ -47,10 +46,8 @@ public class RouletteBetController : MonoBehaviour
     
     private void OnCancelBet(object[] obj)
     {
-        // Find all active chips and return them to the pool
         RemoveAllChipsFromTable();
         
-        // Clear all bets
         ClearAllBets();
         currentBetAmount = 0;
         Debug.Log("All bets canceled");
@@ -58,10 +55,9 @@ public class RouletteBetController : MonoBehaviour
     
     private void RemoveAllChipsFromTable()
     {
-        // Find all TableNumberPlace components in the scene
+        // TODO : Find all TableNumberPlace components in the scene
         TableNumberPlace[] allPlaces = FindObjectsOfType<TableNumberPlace>();
         
-        // Remove all chips from each place
         foreach (TableNumberPlace place in allPlaces)
         {
             place.ReturnAllChipsToPool();
@@ -72,7 +68,7 @@ public class RouletteBetController : MonoBehaviour
     {
         if (currentBetAmount > 0)
         {
-            // Para kontrolü - yeterli bakiye var mı?
+            // MoneyCheck
             if (moneyController != null && moneyController.HasEnoughFunds(currentBetAmount))
             {
                 // Start wheel rotation
@@ -83,15 +79,11 @@ public class RouletteBetController : MonoBehaviour
                 else
                 {
                     Debug.LogError("Wheel Controller reference is missing!");
-                    
-                    // For testing, simulate a spin result
-                    OnSpinFinished(new object[] { UnityEngine.Random.Range(0, 37) });
                 }
             }
             else
             {
-                Debug.LogError("Yeterli bakiye yok!");
-                // Burada oyuncuya yetersiz bakiye uyarısı gösterebilirsiniz
+                Debug.LogError("Insufficient money to spin!");
             }
         }
         else
@@ -160,26 +152,23 @@ public class RouletteBetController : MonoBehaviour
             // Calculate winnings based on the winning number
             int totalWinnings = CalculateWinnings(winningNumber);
             
-            // MoneyCanvasController'ın bakiyeyi güncellemesine izin vermek için güncel bakiye değerini al
             int currentBalance = 0;
             if (moneyController != null)
             {
                 currentBalance = moneyController.GetCurrentBalance();
             }
             
-            // Yeni bakiye = mevcut bakiye + kazanç
             int newBalance = currentBalance + totalWinnings;
             
-            // Trigger event for UI updates
+            
             EventManager.TriggerEvent(GameEvents.OnWinningsCalculated, winningNumber, totalWinnings, newBalance);
             
-            // Remove all chips from the table
             RemoveAllChipsFromTable();
             
-            // Clear all bets for next round
+
             ClearAllBets();
             
-            // Reset the game for a new round
+
             StartCoroutine(PrepareForNextRound());
             
             Debug.Log($"Spin finished. Winning number: {winningNumber}, Total winnings: {totalWinnings}, New balance: {newBalance}");
@@ -188,10 +177,8 @@ public class RouletteBetController : MonoBehaviour
     
     private IEnumerator PrepareForNextRound()
     {
-        // Wait a few seconds after showing the results
         yield return new WaitForSeconds(5f);
         
-        // Reset the roulette wheel if needed
         if (wheelController != null)
         {
             wheelController.ResetRoulette();
@@ -295,14 +282,12 @@ public class RouletteBetController : MonoBehaviour
     
     private bool IsRedNumber(int number)
     {
-        // Red numbers in roulette are: 1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36
         int[] redNumbers = { 1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36 };
         return Array.IndexOf(redNumbers, number) != -1;
     }
     
     private void ClearAllBets()
     {
-        // Clear tracked bets
         placedBets.Clear();
         currentBetAmount = 0;
     }
@@ -319,6 +304,5 @@ public class RouletteBetController : MonoBehaviour
         }
     }
     
-    // Getter for current bet amount
     public int CurrentBetAmount => currentBetAmount;
 }

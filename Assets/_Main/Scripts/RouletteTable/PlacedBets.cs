@@ -17,7 +17,6 @@ public class PlacedBet
         this.betType = place.PlaceBetType;
         this.connectedNumbers = place.ConnectedNumbers;
         
-        // Initialize chip counts dictionary
         chipCounts[Chips.Ten] = 0;
         chipCounts[Chips.Fifty] = 0;
         chipCounts[Chips.Hundered] = 0;
@@ -37,8 +36,13 @@ public class PlacedBet
             chipCounts[chipType] = 1;
         }
         
-        // Update total amount
         totalAmount += GetChipValue(chipType);
+    }
+    
+    public void AddChip(int chipAmount)
+    {
+        
+        totalAmount += chipAmount;
     }
 
     public void RemoveChip(Chips chipType)
