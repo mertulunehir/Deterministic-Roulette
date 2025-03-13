@@ -1301,7 +1301,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   upwardForceInterval: 0.25
   upwardForceMagnitude: 2
-  targetDistanceForceMultiplier: 2
+  targetDistanceForceMultiplier: 15
   minTargetDistance: 0.1
 --- !u!114 &1655557760443301480
 MonoBehaviour:

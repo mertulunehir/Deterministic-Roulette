@@ -191,6 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 4
   connectedNumbers: 0700000008000000090000000a0000000b0000000c000000
+  maxStackHeight: 10
 --- !u!1 &8934166
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,6 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 1e000000
+  maxStackHeight: 10
 --- !u!1 &21960431
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,6 +329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 0a000000
+  maxStackHeight: 10
 --- !u!1 &30480099
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,6 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 8
   connectedNumbers: 
+  maxStackHeight: 10
 --- !u!1 &41936396
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,6 +467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 12
   connectedNumbers: 0100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c000000
+  maxStackHeight: 10
 --- !u!1 &43926248
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,6 +536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 1700000018000000
+  maxStackHeight: 10
 --- !u!1 &62516510
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,6 +572,7 @@ RectTransform:
   - {fileID: 73845341}
   - {fileID: 1831729359}
   - {fileID: 786165090}
+  - {fileID: 1349433681}
   m_Father: {fileID: 1463470505}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -641,6 +648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 4
   connectedNumbers: 130000001400000015000000160000001700000018000000
+  maxStackHeight: 10
 --- !u!1 &69070599
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,6 +717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 1c0000001d000000
+  maxStackHeight: 10
 --- !u!1 &73845340
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,6 +909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 5
   connectedNumbers: 0300000006000000090000000c0000000f0000001200000015000000180000001b0000001e0000002100000024000000
+  maxStackHeight: 10
 --- !u!1 &82650850
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,6 +978,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 2
   connectedNumbers: 220000002300000024000000
+  maxStackHeight: 10
 --- !u!1 &100671997
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,6 +1047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 21000000
+  maxStackHeight: 10
 --- !u!1 &101262187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,6 +1116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 09000000
+  maxStackHeight: 10
 --- !u!1 &104504866
 GameObject:
   m_ObjectHideFlags: 0
@@ -1172,6 +1185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 2
   connectedNumbers: 0a0000000b0000000c000000
+  maxStackHeight: 10
 --- !u!1 &122204579
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,6 +1377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 1d000000
+  maxStackHeight: 10
 --- !u!1 &129935122
 GameObject:
   m_ObjectHideFlags: 0
@@ -1431,6 +1446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 07000000
+  maxStackHeight: 10
 --- !u!1 &134444613
 GameObject:
   m_ObjectHideFlags: 0
@@ -1602,6 +1618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 3
   connectedNumbers: 1a0000001b0000001d0000001e000000
+  maxStackHeight: 10
 --- !u!1 &161499329
 GameObject:
   m_ObjectHideFlags: 0
@@ -1736,6 +1753,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161499329}
   m_CullTransparentMesh: 1
+--- !u!1 &161874358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 161874359}
+  m_Layer: 5
+  m_Name: WinningShowPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &161874359
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161874358}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1661343570}
+  m_Father: {fileID: 970475201}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &185366402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1804,6 +1857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0b0000000c000000
+  maxStackHeight: 10
 --- !u!1 &214562701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,6 +2001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 4
   connectedNumbers: 040000000500000006000000070000000800000009000000
+  maxStackHeight: 10
 --- !u!1 &228981417
 GameObject:
   m_ObjectHideFlags: 0
@@ -2015,6 +2070,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 3
   connectedNumbers: 1c0000001d0000001f00000020000000
+  maxStackHeight: 10
 --- !u!1 &260941643
 GameObject:
   m_ObjectHideFlags: 0
@@ -2083,6 +2139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 180000001b000000
+  maxStackHeight: 10
 --- !u!1 &266068184
 GameObject:
   m_ObjectHideFlags: 0
@@ -2151,6 +2208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0600000009000000
+  maxStackHeight: 10
 --- !u!1 &268809749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2219,6 +2277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 1d0000001e000000
+  maxStackHeight: 10
 --- !u!1 &288691397
 GameObject:
   m_ObjectHideFlags: 0
@@ -2287,6 +2346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 0b000000
+  maxStackHeight: 10
 --- !u!1 &312584557
 GameObject:
   m_ObjectHideFlags: 0
@@ -2355,6 +2415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 2
   connectedNumbers: 160000001700000018000000
+  maxStackHeight: 10
 --- !u!1 &316814240
 GameObject:
   m_ObjectHideFlags: 0
@@ -2423,6 +2484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 1100000014000000
+  maxStackHeight: 10
 --- !u!1 &321055010
 GameObject:
   m_ObjectHideFlags: 0
@@ -2657,6 +2719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0100000004000000
+  maxStackHeight: 10
 --- !u!1 &354508997
 GameObject:
   m_ObjectHideFlags: 0
@@ -2725,6 +2788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 4
   connectedNumbers: 190000001a0000001b0000001c0000001d0000001e000000
+  maxStackHeight: 10
 --- !u!1 &359336745
 GameObject:
   m_ObjectHideFlags: 0
@@ -2793,6 +2857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 5
   connectedNumbers: 0200000005000000080000000b0000000e0000001100000014000000170000001a0000001d0000002000000023000000
+  maxStackHeight: 10
 --- !u!1 &383439912
 GameObject:
   m_ObjectHideFlags: 0
@@ -2861,6 +2926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 2
   connectedNumbers: 010000000200000003000000
+  maxStackHeight: 10
 --- !u!1 &385041636
 GameObject:
   m_ObjectHideFlags: 0
@@ -2967,6 +3033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 7
   connectedNumbers: 
+  maxStackHeight: 10
 --- !u!1 &393669661
 GameObject:
   m_ObjectHideFlags: 0
@@ -3035,6 +3102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 1c0000001f000000
+  maxStackHeight: 10
 --- !u!1 &421771991
 GameObject:
   m_ObjectHideFlags: 0
@@ -3209,6 +3277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 2
   connectedNumbers: 0d0000000e0000000f000000
+  maxStackHeight: 10
 --- !u!1 &433698176
 GameObject:
   m_ObjectHideFlags: 0
@@ -3277,6 +3346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 1c000000
+  maxStackHeight: 10
 --- !u!1 &446934089
 GameObject:
   m_ObjectHideFlags: 0
@@ -3345,6 +3415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 0d000000
+  maxStackHeight: 10
 --- !u!1 &450402750
 GameObject:
   m_ObjectHideFlags: 0
@@ -3413,6 +3484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 12
   connectedNumbers: 190000001a0000001b0000001c0000001d0000001e0000001f0000002000000021000000220000002300000024000000
+  maxStackHeight: 10
 --- !u!1 &450892963
 GameObject:
   m_ObjectHideFlags: 0
@@ -3481,6 +3553,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 2
   connectedNumbers: 100000001100000012000000
+  maxStackHeight: 10
 --- !u!1 &455014595
 GameObject:
   m_ObjectHideFlags: 0
@@ -3624,6 +3697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 1200000015000000
+  maxStackHeight: 10
 --- !u!1 &473603109
 GameObject:
   m_ObjectHideFlags: 0
@@ -3692,6 +3766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 2100000024000000
+  maxStackHeight: 10
 --- !u!1 &475946821
 GameObject:
   m_ObjectHideFlags: 0
@@ -3760,6 +3835,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 19000000
+  maxStackHeight: 10
 --- !u!1 &477214828
 GameObject:
   m_ObjectHideFlags: 0
@@ -3828,6 +3904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 3
   connectedNumbers: 02000000030000000500000006000000
+  maxStackHeight: 10
 --- !u!1 &480780809
 GameObject:
   m_ObjectHideFlags: 0
@@ -3896,6 +3973,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 12000000
+  maxStackHeight: 10
 --- !u!1 &487861781
 GameObject:
   m_ObjectHideFlags: 0
@@ -3964,6 +4042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 02000000
+  maxStackHeight: 10
 --- !u!1 &488593531
 GameObject:
   m_ObjectHideFlags: 0
@@ -4032,6 +4111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 2
   connectedNumbers: 1c0000001d0000001e000000
+  maxStackHeight: 10
 --- !u!1 &498786803
 GameObject:
   m_ObjectHideFlags: 0
@@ -4100,6 +4180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 16000000
+  maxStackHeight: 10
 --- !u!1 &499725321
 GameObject:
   m_ObjectHideFlags: 0
@@ -4168,6 +4249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 3
   connectedNumbers: 05000000060000000800000009000000
+  maxStackHeight: 10
 --- !u!1 &507935968
 GameObject:
   m_ObjectHideFlags: 0
@@ -4370,6 +4452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0d00000010000000
+  maxStackHeight: 10
 --- !u!1 &521115668
 GameObject:
   m_ObjectHideFlags: 0
@@ -4386,7 +4469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &521115669
 Transform:
   m_ObjectHideFlags: 0
@@ -4510,6 +4593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 1a000000
+  maxStackHeight: 10
 --- !u!1 &534125359
 GameObject:
   m_ObjectHideFlags: 0
@@ -4846,6 +4930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 17000000
+  maxStackHeight: 10
 --- !u!1 &565985060
 GameObject:
   m_ObjectHideFlags: 0
@@ -5352,6 +5437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 0f000000
+  maxStackHeight: 10
 --- !u!1 &619141428
 GameObject:
   m_ObjectHideFlags: 0
@@ -5420,6 +5506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 2
   connectedNumbers: 1f0000002000000021000000
+  maxStackHeight: 10
 --- !u!1 &621666100
 GameObject:
   m_ObjectHideFlags: 0
@@ -5488,6 +5575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 3
   connectedNumbers: 08000000090000000b0000000c000000
+  maxStackHeight: 10
 --- !u!1 &627633221
 GameObject:
   m_ObjectHideFlags: 0
@@ -5556,6 +5644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 3
   connectedNumbers: 1d0000001e0000002000000021000000
+  maxStackHeight: 10
 --- !u!1 &630451066
 GameObject:
   m_ObjectHideFlags: 0
@@ -5699,6 +5788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 1e00000021000000
+  maxStackHeight: 10
 --- !u!1 &658576326
 GameObject:
   m_ObjectHideFlags: 0
@@ -5901,6 +5991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 22000000
+  maxStackHeight: 10
 --- !u!1 &661403507
 GameObject:
   m_ObjectHideFlags: 0
@@ -5969,6 +6060,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0200000003000000
+  maxStackHeight: 10
 --- !u!1 &673797050
 GameObject:
   m_ObjectHideFlags: 0
@@ -6037,6 +6129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 3
   connectedNumbers: 20000000210000002300000024000000
+  maxStackHeight: 10
 --- !u!1 &688321814
 GameObject:
   m_ObjectHideFlags: 3
@@ -6218,6 +6311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 2000000023000000
+  maxStackHeight: 10
 --- !u!1 &691362627
 GameObject:
   m_ObjectHideFlags: 0
@@ -6395,6 +6489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0500000008000000
+  maxStackHeight: 10
 --- !u!1 &705019408
 GameObject:
   m_ObjectHideFlags: 0
@@ -6529,6 +6624,140 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705019408}
   m_CullTransparentMesh: 1
+--- !u!1 &711387832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 711387833}
+  - component: {fileID: 711387835}
+  - component: {fileID: 711387834}
+  m_Layer: 5
+  m_Name: WinningNumberText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &711387833
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711387832}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1661343570}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 38.600014}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &711387834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711387832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 5
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 75
+  m_fontSizeBase: 75
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 0
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &711387835
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711387832}
+  m_CullTransparentMesh: 1
 --- !u!1 &714881108
 GameObject:
   m_ObjectHideFlags: 0
@@ -6597,6 +6826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 080000000b000000
+  maxStackHeight: 10
 --- !u!1 &717479764
 GameObject:
   m_ObjectHideFlags: 0
@@ -6665,6 +6895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 00000000
+  maxStackHeight: 10
 --- !u!1 &720581710
 GameObject:
   m_ObjectHideFlags: 0
@@ -6733,6 +6964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 1600000017000000
+  maxStackHeight: 10
 --- !u!1 &764823101
 GameObject:
   m_ObjectHideFlags: 0
@@ -6801,6 +7033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 170000001a000000
+  maxStackHeight: 10
 --- !u!1 &768029841
 GameObject:
   m_ObjectHideFlags: 0
@@ -7177,6 +7410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 04000000
+  maxStackHeight: 10
 --- !u!1 &818697790
 GameObject:
   m_ObjectHideFlags: 0
@@ -7245,6 +7479,141 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 5
   connectedNumbers: 0100000004000000070000000a0000000d000000100000001300000016000000190000001c0000001f00000022000000
+  maxStackHeight: 10
+--- !u!1 &822022284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 822022285}
+  - component: {fileID: 822022287}
+  - component: {fileID: 822022286}
+  m_Layer: 5
+  m_Name: Text (TMP) (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &822022285
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822022284}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1661343570}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -22.09999}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &822022286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822022284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Winning Amount
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 4
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 0
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &822022287
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822022284}
+  m_CullTransparentMesh: 1
 --- !u!1 &836826897
 GameObject:
   m_ObjectHideFlags: 0
@@ -7313,6 +7682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 2300000024000000
+  maxStackHeight: 10
 --- !u!1 &836913059
 GameObject:
   m_ObjectHideFlags: 0
@@ -7381,6 +7751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 05000000
+  maxStackHeight: 10
 --- !u!1 &874806884
 GameObject:
   m_ObjectHideFlags: 0
@@ -7449,6 +7820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 11
   connectedNumbers: 
+  maxStackHeight: 10
 --- !u!1 &879052385
 GameObject:
   m_ObjectHideFlags: 0
@@ -7651,6 +8023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 1a0000001b000000
+  maxStackHeight: 10
 --- !u!1 &882873560
 GameObject:
   m_ObjectHideFlags: 0
@@ -7853,6 +8226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 4
   connectedNumbers: 1f0000002000000021000000220000002300000024000000
+  maxStackHeight: 10
 --- !u!1 &914793813
 GameObject:
   m_ObjectHideFlags: 0
@@ -7921,6 +8295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 2
   connectedNumbers: 190000001a0000001b000000
+  maxStackHeight: 10
 --- !u!4 &921644093 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 13468330149763747, guid: b76c966dad49c9b4fa8cbb38cabf1061,
@@ -7995,6 +8370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0c0000000f000000
+  maxStackHeight: 10
 --- !u!1 &959214496
 GameObject:
   m_ObjectHideFlags: 0
@@ -8063,6 +8439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 3
   connectedNumbers: 0b0000000c0000000e0000000f000000
+  maxStackHeight: 10
 --- !u!1 &961989370
 GameObject:
   m_ObjectHideFlags: 0
@@ -8131,6 +8508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0700000008000000
+  maxStackHeight: 10
 --- !u!1 &970475197
 GameObject:
   m_ObjectHideFlags: 0
@@ -8143,6 +8521,7 @@ GameObject:
   - component: {fileID: 970475200}
   - component: {fileID: 970475199}
   - component: {fileID: 970475198}
+  - component: {fileID: 970475202}
   m_Layer: 5
   m_Name: MoneyCanvas
   m_TagString: Untagged
@@ -8226,6 +8605,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1760021670}
+  - {fileID: 161874359}
   m_Father: {fileID: 1208166100}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -8233,6 +8613,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &970475202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970475197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d1d1f510a6f2754b8e30170fcb6d296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  balanceText: {fileID: 658576328}
+  winningPanel: {fileID: 161874358}
+  winningNumberText: {fileID: 711387834}
+  winningAmountText: {fileID: 1234397343}
+  startingBalance: 1000
+  winningPanelDisplayTime: 5
 --- !u!1 &973667065
 GameObject:
   m_ObjectHideFlags: 0
@@ -8301,6 +8699,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 1300000014000000
+  maxStackHeight: 10
 --- !u!1 &1007863238
 GameObject:
   m_ObjectHideFlags: 0
@@ -8490,6 +8889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 1f00000022000000
+  maxStackHeight: 10
 --- !u!1 &1045699487
 GameObject:
   m_ObjectHideFlags: 0
@@ -8686,6 +9086,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 08000000
+  maxStackHeight: 10
 --- !u!1 &1050377492
 GameObject:
   m_ObjectHideFlags: 0
@@ -8754,6 +9155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 190000001c000000
+  maxStackHeight: 10
 --- !u!1 &1052984843
 GameObject:
   m_ObjectHideFlags: 0
@@ -8897,6 +9299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 3
   connectedNumbers: 17000000180000001a0000001b000000
+  maxStackHeight: 10
 --- !u!1 &1059126175
 GameObject:
   m_ObjectHideFlags: 0
@@ -8965,6 +9368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 3
   connectedNumbers: 11000000120000001400000015000000
+  maxStackHeight: 10
 --- !u!114 &1065279425 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6555775196154611943, guid: b76c966dad49c9b4fa8cbb38cabf1061,
@@ -9165,6 +9569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 3
   connectedNumbers: 04000000050000000700000008000000
+  maxStackHeight: 10
 --- !u!1 &1101130513
 GameObject:
   m_ObjectHideFlags: 0
@@ -9442,6 +9847,83 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 190000001a000000
+  maxStackHeight: 10
+--- !u!1 &1120081379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1120081380}
+  - component: {fileID: 1120081382}
+  - component: {fileID: 1120081381}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1120081380
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120081379}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1629338621}
+  m_Father: {fileID: 1349433681}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 545.55, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1120081381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120081379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.36320752, b: 0.36320752, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1120081382
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120081379}
+  m_CullTransparentMesh: 1
 --- !u!1 &1127487751
 GameObject:
   m_ObjectHideFlags: 0
@@ -9719,6 +10201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 070000000a000000
+  maxStackHeight: 10
 --- !u!1 &1153663839
 GameObject:
   m_ObjectHideFlags: 0
@@ -9830,6 +10313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0a0000000b000000
+  maxStackHeight: 10
 --- !u!1 &1172717297
 GameObject:
   m_ObjectHideFlags: 0
@@ -9898,6 +10382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 3
   connectedNumbers: 07000000080000000a0000000b000000
+  maxStackHeight: 10
 --- !u!1 &1182063027
 GameObject:
   m_ObjectHideFlags: 0
@@ -9966,6 +10451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0a0000000d000000
+  maxStackHeight: 10
 --- !u!1 &1184524593
 GameObject:
   m_ObjectHideFlags: 0
@@ -10034,6 +10520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 3
   connectedNumbers: 1f000000200000002200000023000000
+  maxStackHeight: 10
 --- !u!1 &1190644416
 GameObject:
   m_ObjectHideFlags: 0
@@ -10225,6 +10712,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0000000003000000
+  maxStackHeight: 10
 --- !u!1 &1197241271
 GameObject:
   m_ObjectHideFlags: 0
@@ -10293,6 +10781,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 14000000
+  maxStackHeight: 10
 --- !u!1 &1208166099
 GameObject:
   m_ObjectHideFlags: 0
@@ -10395,6 +10884,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 18000000
+  maxStackHeight: 10
 --- !u!1 &1220255743
 GameObject:
   m_ObjectHideFlags: 0
@@ -10463,6 +10953,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 3
   connectedNumbers: 1600000017000000190000001a000000
+  maxStackHeight: 10
 --- !u!1 &1224394660
 GameObject:
   m_ObjectHideFlags: 0
@@ -10531,6 +11022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 20000000
+  maxStackHeight: 10
 --- !u!1 &1233430503
 GameObject:
   m_ObjectHideFlags: 0
@@ -10599,6 +11091,141 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0000000001000000
+  maxStackHeight: 10
+--- !u!1 &1234397341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1234397342}
+  - component: {fileID: 1234397344}
+  - component: {fileID: 1234397343}
+  m_Layer: 5
+  m_Name: WinningAmount
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1234397342
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234397341}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1661343570}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -91.10004}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1234397343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234397341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 1000$
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 75
+  m_fontSizeBase: 75
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 0
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1234397344
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234397341}
+  m_CullTransparentMesh: 1
 --- !u!1 &1254378691
 GameObject:
   m_ObjectHideFlags: 0
@@ -10667,6 +11294,143 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 10000000
+  maxStackHeight: 10
+--- !u!1 &1259965243
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1259965244}
+  - component: {fileID: 1259965246}
+  - component: {fileID: 1259965245}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1259965244
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259965243}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1661343570}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 97.800064}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1259965245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259965243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'Winning Number
+
+'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 4
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 0
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1259965246
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259965243}
+  m_CullTransparentMesh: 1
 --- !u!1 &1264112428
 GameObject:
   m_ObjectHideFlags: 0
@@ -10735,6 +11499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 4
   connectedNumbers: 100000001100000012000000130000001400000015000000
+  maxStackHeight: 10
 --- !u!1 &1286218152
 GameObject:
   m_ObjectHideFlags: 0
@@ -10803,6 +11568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 1100000012000000
+  maxStackHeight: 10
 --- !u!1 &1287081862
 GameObject:
   m_ObjectHideFlags: 0
@@ -10946,6 +11712,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 6
   connectedNumbers: 
+  maxStackHeight: 10
 --- !u!1 &1315981697
 GameObject:
   m_ObjectHideFlags: 0
@@ -11014,6 +11781,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 9
   connectedNumbers: 
+  maxStackHeight: 10
 --- !u!1 &1318660902
 GameObject:
   m_ObjectHideFlags: 0
@@ -11363,6 +12131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 2200000023000000
+  maxStackHeight: 10
 --- !u!1 &1346213202
 GameObject:
   m_ObjectHideFlags: 0
@@ -11431,6 +12200,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 4
   connectedNumbers: 160000001700000018000000190000001a0000001b000000
+  maxStackHeight: 10
+--- !u!1 &1349433680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1349433681}
+  m_Layer: 5
+  m_Name: InsufficientPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1349433681
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349433680}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1120081380}
+  m_Father: {fileID: 62516511}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 218}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1359164864
 GameObject:
   m_ObjectHideFlags: 0
@@ -11499,6 +12305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 4
   connectedNumbers: 1c0000001d0000001e0000001f0000002000000021000000
+  maxStackHeight: 10
 --- !u!1 &1367756648
 GameObject:
   m_ObjectHideFlags: 0
@@ -11567,6 +12374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 1000000011000000
+  maxStackHeight: 10
 --- !u!1 &1383162427
 GameObject:
   m_ObjectHideFlags: 0
@@ -11804,6 +12612,132 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0300000006000000
+  maxStackHeight: 10
+--- !u!1 &1399141728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1399141730}
+  - component: {fileID: 1399141729}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1399141729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399141728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43748c360959eb74999064aec4f85a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelController: {fileID: 1065279425}
+  betController: {fileID: 1581306440}
+  betCanvasController: {fileID: 1463470506}
+  cameraController: {fileID: 2132304539}
+  moneyController: {fileID: 0}
+  gameRestartDelay: 3
+--- !u!4 &1399141730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399141728}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1406002608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1406002609}
+  - component: {fileID: 1406002611}
+  - component: {fileID: 1406002610}
+  m_Layer: 5
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1406002609
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406002608}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1661343570}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 350, y: 270.2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1406002610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406002608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.9019608}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1406002611
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406002608}
+  m_CullTransparentMesh: 1
 --- !u!1 &1410950210
 GameObject:
   m_ObjectHideFlags: 0
@@ -11931,6 +12865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 4
   connectedNumbers: 010000000200000003000000040000000500000006000000
+  maxStackHeight: 10
 --- !u!1 &1432840558
 GameObject:
   m_ObjectHideFlags: 0
@@ -12071,6 +13006,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0f00000012000000
+  maxStackHeight: 10
 --- !u!1 &1440851402
 GameObject:
   m_ObjectHideFlags: 0
@@ -12139,6 +13075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 4
   connectedNumbers: 0d0000000e0000000f000000100000001100000012000000
+  maxStackHeight: 10
 --- !u!1 &1452891640
 GameObject:
   m_ObjectHideFlags: 0
@@ -12207,6 +13144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0400000007000000
+  maxStackHeight: 10
 --- !u!1 &1456993369
 GameObject:
   m_ObjectHideFlags: 0
@@ -12275,6 +13213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 13000000
+  maxStackHeight: 10
 --- !u!1 &1463470501
 GameObject:
   m_ObjectHideFlags: 0
@@ -12399,6 +13338,10 @@ MonoBehaviour:
   spinButton: {fileID: 73845342}
   buttonOutlineOpenColor: {r: 0.69411767, g: 0.9607843, b: 0.5568628, a: 1}
   buttonOutlineCloseColor: {r: 0.69411767, g: 0.9607843, b: 0.5568628, a: 0}
+  currentBetText: {fileID: 1720131818}
+  moneyController: {fileID: 970475202}
+  insufficientFundsPanel: {fileID: 1349433680}
+  insufficientFundsDisplayTime: 1
 --- !u!1 &1494806120
 GameObject:
   m_ObjectHideFlags: 0
@@ -12467,6 +13410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 3
   connectedNumbers: 190000001a0000001c0000001d000000
+  maxStackHeight: 10
 --- !u!1 &1507112927
 GameObject:
   m_ObjectHideFlags: 0
@@ -12535,6 +13479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 1a0000001d000000
+  maxStackHeight: 10
 --- !u!1 &1514680247
 GameObject:
   m_ObjectHideFlags: 0
@@ -12603,6 +13548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0400000005000000
+  maxStackHeight: 10
 --- !u!1 &1526949521
 GameObject:
   m_ObjectHideFlags: 0
@@ -12708,6 +13654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 1f00000020000000
+  maxStackHeight: 10
 --- !u!1 &1537944405
 GameObject:
   m_ObjectHideFlags: 0
@@ -12776,6 +13723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 1300000016000000
+  maxStackHeight: 10
 --- !u!1 &1539488914
 GameObject:
   m_ObjectHideFlags: 0
@@ -12844,6 +13792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 1b0000001e000000
+  maxStackHeight: 10
 --- !u!1 &1560704191
 GameObject:
   m_ObjectHideFlags: 0
@@ -12912,6 +13861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 090000000c000000
+  maxStackHeight: 10
 --- !u!1 &1562804420
 GameObject:
   m_ObjectHideFlags: 0
@@ -12980,6 +13930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 1b000000
+  maxStackHeight: 10
 --- !u!1 &1568519224
 GameObject:
   m_ObjectHideFlags: 0
@@ -13048,6 +13999,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 3
   connectedNumbers: 13000000140000001600000017000000
+  maxStackHeight: 10
 --- !u!1 &1569031587
 GameObject:
   m_ObjectHideFlags: 0
@@ -13250,6 +14202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 3
   connectedNumbers: 14000000150000001700000018000000
+  maxStackHeight: 10
 --- !u!1 &1581306438
 GameObject:
   m_ObjectHideFlags: 0
@@ -13304,6 +14257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wheelController: {fileID: 1065279425}
+  moneyController: {fileID: 970475202}
   straightBetMultiplier: 35
   splitBetMultiplier: 17
   streetBetMultiplier: 11
@@ -13396,6 +14350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 1400000017000000
+  maxStackHeight: 10
 --- !u!1 &1591872203
 GameObject:
   m_ObjectHideFlags: 0
@@ -13464,6 +14419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 24000000
+  maxStackHeight: 10
 --- !u!1 &1596763930
 GameObject:
   m_ObjectHideFlags: 0
@@ -13576,6 +14532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 01000000
+  maxStackHeight: 10
 --- !u!1 &1611499762
 GameObject:
   m_ObjectHideFlags: 0
@@ -13679,6 +14636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 1600000019000000
+  maxStackHeight: 10
 --- !u!1 &1623383953
 GameObject:
   m_ObjectHideFlags: 3
@@ -13881,6 +14839,141 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 1f000000
+  maxStackHeight: 10
+--- !u!1 &1629338620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1629338621}
+  - component: {fileID: 1629338623}
+  - component: {fileID: 1629338622}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1629338621
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629338620}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1120081380}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1629338622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629338620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Not Enought Balance!
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 50.8
+  m_fontSizeBase: 50.8
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 0
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1629338623
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629338620}
+  m_CullTransparentMesh: 1
 --- !u!1 &1633335215
 GameObject:
   m_ObjectHideFlags: 0
@@ -13949,6 +15042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 3
   connectedNumbers: 0d0000000e0000001000000011000000
+  maxStackHeight: 10
 --- !u!1 &1644749143
 GameObject:
   m_ObjectHideFlags: 0
@@ -14017,6 +15111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 12
   connectedNumbers: 0d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000
+  maxStackHeight: 10
 --- !u!1 &1652016167
 GameObject:
   m_ObjectHideFlags: 0
@@ -14151,6 +15246,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652016167}
   m_CullTransparentMesh: 1
+--- !u!1 &1661343569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1661343570}
+  m_Layer: 5
+  m_Name: Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1661343570
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661343569}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1406002609}
+  - {fileID: 1259965244}
+  - {fileID: 711387833}
+  - {fileID: 822022285}
+  - {fileID: 1234397342}
+  m_Father: {fileID: 161874359}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 305, y: 0}
+  m_SizeDelta: {x: 350, y: 270.2}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1698757025
 GameObject:
   m_ObjectHideFlags: 0
@@ -14476,6 +15611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 2000000021000000
+  maxStackHeight: 10
 --- !u!1 &1736038320
 GameObject:
   m_ObjectHideFlags: 0
@@ -14544,6 +15680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0200000005000000
+  maxStackHeight: 10
 --- !u!1 &1745548048
 GameObject:
   m_ObjectHideFlags: 0
@@ -14735,6 +15872,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 2
   connectedNumbers: 070000000800000009000000
+  maxStackHeight: 10
 --- !u!1 &1759966618
 GameObject:
   m_ObjectHideFlags: 0
@@ -14803,6 +15941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 03000000
+  maxStackHeight: 10
 --- !u!1 &1760021669
 GameObject:
   m_ObjectHideFlags: 0
@@ -14909,6 +16048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 4
   connectedNumbers: 0a0000000b0000000c0000000d0000000e0000000f000000
+  maxStackHeight: 10
 --- !u!1 &1783822721
 GameObject:
   m_ObjectHideFlags: 0
@@ -15274,6 +16414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0800000009000000
+  maxStackHeight: 10
 --- !u!1 &1853101164
 GameObject:
   m_ObjectHideFlags: 0
@@ -15342,6 +16483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0b00000011000000
+  maxStackHeight: 10
 --- !u!1 &1854351161
 GameObject:
   m_ObjectHideFlags: 0
@@ -15444,6 +16586,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 11000000
+  maxStackHeight: 10
 --- !u!1 &1898091655
 GameObject:
   m_ObjectHideFlags: 0
@@ -15512,6 +16655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 1400000015000000
+  maxStackHeight: 10
 --- !u!1 &1900806193
 GameObject:
   m_ObjectHideFlags: 0
@@ -15580,6 +16724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0b0000000e000000
+  maxStackHeight: 10
 --- !u!1 &1917075033
 GameObject:
   m_ObjectHideFlags: 0
@@ -15648,6 +16793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 2
   connectedNumbers: 040000000500000006000000
+  maxStackHeight: 10
 --- !u!1 &1919502730
 GameObject:
   m_ObjectHideFlags: 0
@@ -15716,6 +16862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 0c000000
+  maxStackHeight: 10
 --- !u!1 &1934985164
 GameObject:
   m_ObjectHideFlags: 0
@@ -15784,6 +16931,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0500000006000000
+  maxStackHeight: 10
 --- !u!1 &1936732534
 GameObject:
   m_ObjectHideFlags: 0
@@ -15852,6 +17000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 15000000
+  maxStackHeight: 10
 --- !u!1 &1963624476
 GameObject:
   m_ObjectHideFlags: 0
@@ -15920,6 +17069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 3
   connectedNumbers: 0a0000000b0000000d0000000e000000
+  maxStackHeight: 10
 --- !u!1 &1964520058
 GameObject:
   m_ObjectHideFlags: 0
@@ -16063,6 +17213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 3
   connectedNumbers: 01000000020000000400000005000000
+  maxStackHeight: 10
 --- !u!1 &1980692218
 GameObject:
   m_ObjectHideFlags: 0
@@ -16131,6 +17282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 3
   connectedNumbers: 0e0000000f0000001100000012000000
+  maxStackHeight: 10
 --- !u!1 &1982140134
 GameObject:
   m_ObjectHideFlags: 0
@@ -16199,6 +17351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0000000002000000
+  maxStackHeight: 10
 --- !u!1 &2002594464
 GameObject:
   m_ObjectHideFlags: 0
@@ -16335,6 +17488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0d0000000e000000
+  maxStackHeight: 10
 --- !u!1 &2008264544
 GameObject:
   m_ObjectHideFlags: 0
@@ -16403,6 +17557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 10
   connectedNumbers: 
+  maxStackHeight: 10
 --- !u!1 &2009485396
 GameObject:
   m_ObjectHideFlags: 0
@@ -16605,6 +17760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 1d00000020000000
+  maxStackHeight: 10
 --- !u!1 &2041193884
 GameObject:
   m_ObjectHideFlags: 0
@@ -16673,6 +17829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 23000000
+  maxStackHeight: 10
 --- !u!1 &2065506873
 GameObject:
   m_ObjectHideFlags: 0
@@ -16741,6 +17898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 1000000013000000
+  maxStackHeight: 10
 --- !u!1 &2071323398
 GameObject:
   m_ObjectHideFlags: 0
@@ -16809,6 +17967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0e0000000f000000
+  maxStackHeight: 10
 --- !u!1 &2085800280
 GameObject:
   m_ObjectHideFlags: 0
@@ -16877,6 +18036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 1500000018000000
+  maxStackHeight: 10
 --- !u!1 &2102551483
 GameObject:
   m_ObjectHideFlags: 0
@@ -16945,6 +18105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 2
   connectedNumbers: 130000001400000015000000
+  maxStackHeight: 10
 --- !u!1 &2113002417
 GameObject:
   m_ObjectHideFlags: 0
@@ -17013,6 +18174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 1
   connectedNumbers: 0100000002000000
+  maxStackHeight: 10
 --- !u!1 &2117982950
 GameObject:
   m_ObjectHideFlags: 0
@@ -17081,6 +18243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 0e000000
+  maxStackHeight: 10
 --- !u!1 &2126459236
 GameObject:
   m_ObjectHideFlags: 0
@@ -17149,6 +18312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 0
   connectedNumbers: 06000000
+  maxStackHeight: 10
 --- !u!1 &2132304537
 GameObject:
   m_ObjectHideFlags: 0
@@ -17158,6 +18322,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2132304538}
+  - component: {fileID: 2132304539}
   m_Layer: 0
   m_Name: Cameras
   m_TagString: Untagged
@@ -17178,11 +18343,27 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 521115669}
   - {fileID: 1330530669}
+  - {fileID: 521115669}
   - {fileID: 1432840559}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2132304539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132304537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b75dd928a8545a4ab7fa56a00bc832f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tableCamera: {fileID: 1330530668}
+  spinCamera: {fileID: 521115668}
+  ballCamera: {fileID: 1432840558}
+  ballCamDuration: 5
 --- !u!1 &2133814668
 GameObject:
   m_ObjectHideFlags: 0
@@ -17251,6 +18432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeBetType: 3
   connectedNumbers: 10000000110000001300000014000000
+  maxStackHeight: 10
 --- !u!1 &38854805864958364
 GameObject:
   m_ObjectHideFlags: 0
@@ -17697,3 +18879,4 @@ SceneRoots:
   - {fileID: 1208166100}
   - {fileID: 2002594467}
   - {fileID: 1048210817}
+  - {fileID: 1399141730}

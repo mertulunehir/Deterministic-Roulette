@@ -6,5 +6,7 @@ public enum GameEvents
     OnChipPlaced,
     OnChipRemoved,
     OnWinningsCalculated,
-    OnSpinFinished
+    OnSpinFinished,
+    OnEnableBetCanvas,
+    OnInsufficientFunds
 }

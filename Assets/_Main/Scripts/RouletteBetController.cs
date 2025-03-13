@@ -6,6 +6,7 @@ using UnityEngine;
 public class RouletteBetController : MonoBehaviour
 {
     [SerializeField] private RouletteWheelController wheelController;
+    [SerializeField] private MoneyCanvasController moneyController;
     
     // Bet reward multipliers for different bet types
     [Header("Bet Reward Multipliers")]
@@ -20,7 +21,6 @@ public class RouletteBetController : MonoBehaviour
     
     private Chips _currentSelectedChip = Chips.Ten;
     private int currentBetAmount = 0;
-    private int playerBalance = 1000; // Starting balance, adjust as needed
     
     // Dictionary to track bets by place
     private Dictionary<TableNumberPlace, PlacedBet> placedBets = new Dictionary<TableNumberPlace, PlacedBet>();
@@ -72,20 +72,26 @@ public class RouletteBetController : MonoBehaviour
     {
         if (currentBetAmount > 0)
         {
-            // Deduct the total bet amount from player balance
-            playerBalance -= currentBetAmount;
-            
-            // Start wheel rotation
-            if (wheelController != null)
+            // Para kontrolü - yeterli bakiye var mı?
+            if (moneyController != null && moneyController.HasEnoughFunds(currentBetAmount))
             {
-                wheelController.StartRoulette();
+                // Start wheel rotation
+                if (wheelController != null)
+                {
+                    wheelController.StartRoulette();
+                }
+                else
+                {
+                    Debug.LogError("Wheel Controller reference is missing!");
+                    
+                    // For testing, simulate a spin result
+                    OnSpinFinished(new object[] { UnityEngine.Random.Range(0, 37) });
+                }
             }
             else
             {
-                Debug.LogError("Wheel Controller reference is missing!");
-                
-                // For testing, simulate a spin result
-                OnSpinFinished(new object[] { UnityEngine.Random.Range(0, 37) });
+                Debug.LogError("Yeterli bakiye yok!");
+                // Burada oyuncuya yetersiz bakiye uyarısı gösterebilirsiniz
             }
         }
         else
@@ -154,17 +160,44 @@ public class RouletteBetController : MonoBehaviour
             // Calculate winnings based on the winning number
             int totalWinnings = CalculateWinnings(winningNumber);
             
-            // Add winnings to player balance
-            playerBalance += totalWinnings;
+            // MoneyCanvasController'ın bakiyeyi güncellemesine izin vermek için güncel bakiye değerini al
+            int currentBalance = 0;
+            if (moneyController != null)
+            {
+                currentBalance = moneyController.GetCurrentBalance();
+            }
+            
+            // Yeni bakiye = mevcut bakiye + kazanç
+            int newBalance = currentBalance + totalWinnings;
             
             // Trigger event for UI updates
-            EventManager.TriggerEvent(GameEvents.OnWinningsCalculated, winningNumber, totalWinnings, playerBalance);
+            EventManager.TriggerEvent(GameEvents.OnWinningsCalculated, winningNumber, totalWinnings, newBalance);
+            
+            // Remove all chips from the table
+            RemoveAllChipsFromTable();
             
             // Clear all bets for next round
             ClearAllBets();
             
-            Debug.Log($"Spin finished. Winning number: {winningNumber}, Total winnings: {totalWinnings}, New balance: {playerBalance}");
+            // Reset the game for a new round
+            StartCoroutine(PrepareForNextRound());
+            
+            Debug.Log($"Spin finished. Winning number: {winningNumber}, Total winnings: {totalWinnings}, New balance: {newBalance}");
         }
+    }
+    
+    private IEnumerator PrepareForNextRound()
+    {
+        // Wait a few seconds after showing the results
+        yield return new WaitForSeconds(5f);
+        
+        // Reset the roulette wheel if needed
+        if (wheelController != null)
+        {
+            wheelController.ResetRoulette();
+        }
+        
+        
     }
     
     private int CalculateWinnings(int winningNumber)
@@ -242,6 +275,9 @@ public class RouletteBetController : MonoBehaviour
                     isWinningBet = winningNumber > 0 && winningNumber % 2 == 0;
                     multiplier = evenOddRedBlackHighLowMultiplier;
                     break;
+                
+                default:
+                    continue;
             }
             
             if (isWinningBet)
@@ -282,9 +318,6 @@ public class RouletteBetController : MonoBehaviour
             default: return 0;
         }
     }
-    
-    // Getter for player balance
-    public int PlayerBalance => playerBalance;
     
     // Getter for current bet amount
     public int CurrentBetAmount => currentBetAmount;

@@ -247,6 +247,19 @@ public class RouletteWheelController : MonoBehaviour
         isSpinning = false;
         isSlowingDown = false;
         isTargetingEnabled = false;
+        
+        // Eğer gerekliyse topun pozisyonunu sıfırla
+        if (ball != null)
+        {
+            ball.gameObject.SetActive(false);
+        }
+    
+        // Tekeri başlangıç konumuna getir (opsiyonel)
+        if (wheel != null)
+        {
+            wheel.rotation = Quaternion.identity;
+        }
+        
     }
     
     
