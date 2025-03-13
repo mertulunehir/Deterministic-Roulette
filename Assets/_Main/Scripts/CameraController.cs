@@ -79,14 +79,17 @@ public class CameraController : MonoBehaviour
         if (currentActiveCamera == targetCamera)
             return;
         
+        
+        
+        // Hedef kamerayı aç
+        targetCamera.SetActive(true);
+        
         // Mevcut kamerayı kapat
         if (currentActiveCamera != null)
         {
             currentActiveCamera.SetActive(false);
         }
         
-        // Hedef kamerayı aç
-        targetCamera.SetActive(true);
         currentActiveCamera = targetCamera;
     }
     

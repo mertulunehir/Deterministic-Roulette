@@ -1262,19 +1262,17 @@ MonoBehaviour:
   wheelSpinSpeed: 360
   maxOrbitDuration: 25
   minOrbitDuration: 15
-  initialBallSpeed: 10
+  initialBallSpeed: 15
   tangentialForce: 25
   centerForce: 100
   slowdownRate: 3
   minVelocityToStop: 1
-  optimalDistance: 2
-  distanceForceMultiplier: 5
+  downwardForce: 25
   isDeterministic: 0
-  currentTargetNumber: 0
-  targetForceStartTime: 2
-  initialTargetForce: 2
+  currentTargetNumber: 36
+  initialTargetForce: 3.54
   targetForceGrowthRate: 1
-  maxTargetForce: 10
+  maxTargetForce: 5.39
   targetForceCurve:
     serializedVersion: 2
     m_Curve:
@@ -1300,7 +1298,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   upwardForceInterval: 0.25
-  upwardForceMagnitude: 2
+  upwardForceMagnitude: 4
   targetDistanceForceMultiplier: 15
   minTargetDistance: 0.1
 --- !u!114 &1655557760443301480
