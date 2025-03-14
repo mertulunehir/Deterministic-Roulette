@@ -106,7 +106,6 @@ The game includes a development option to force specific outcomes:
 - Implement different roulette variations (American, European, French).
 - Add chip stacking animations and improved visual feedback.
 - Enhance sound effects and music integration.
-- Implement a more sophisticated AI for dealer interactions.
 - Add VFX for winning bets and major wins.
 - Implement a tutorial system for new players.
 
