@@ -107,7 +107,6 @@ The game includes a development option to force specific outcomes:
 - Add chip stacking animations and improved visual feedback.
 - Enhance sound effects and music integration.
 - Add VFX for winning bets and major wins.
-- Implement a tutorial system for new players.
 
 
 ## Demo Video
