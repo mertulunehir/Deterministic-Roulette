@@ -1258,39 +1258,34 @@ MonoBehaviour:
     type: 2}
   wheel: {fileID: 7433796935470081769}
   wheelCenter: {fileID: 7433796935470081769}
-  spinStartPos: {fileID: 3334322354511165237}
   wheelSpinSpeed: 360
   maxOrbitDuration: 25
   minOrbitDuration: 15
-  initialBallSpeed: 15
+  initialBallSpeed: 20
   tangentialForce: 25
-  centerForce: 100
-  slowdownRate: 3
+  slowdownRate: 4
   minVelocityToStop: 1
-  downwardForce: 25
-  isDeterministic: 0
-  currentTargetNumber: 36
-  initialTargetForce: 3.54
-  targetForceGrowthRate: 1
-  maxTargetForce: 5.39
+  downwardForce: 35
+  initialTargetForce: 10
+  maxTargetForce: 10
   targetForceCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
-      tangentMode: 0
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0
@@ -1298,9 +1293,11 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   upwardForceInterval: 0.25
-  upwardForceMagnitude: 4
-  targetDistanceForceMultiplier: 15
-  minTargetDistance: 0.1
+  upwardForceMagnitude: 8
+  targetDistanceForceMultiplier: 8
+  minTargetDistance: 0.5
+  isDeterministic: 0
+  currentTargetNumber: 13
 --- !u!114 &1655557760443301480
 MonoBehaviour:
   m_ObjectHideFlags: 0

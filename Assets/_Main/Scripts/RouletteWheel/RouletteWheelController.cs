@@ -28,8 +28,6 @@ public class RouletteWheelController : MonoBehaviour
     public float downwardForce = 25f;
     
     [Header("Target Point Settings")]
-    public bool isDeterministic = true;
-    public int currentTargetNumber = 0;
     public float initialTargetForce = 80f;
     public float maxTargetForce = 500f;
     public AnimationCurve targetForceCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
@@ -39,6 +37,10 @@ public class RouletteWheelController : MonoBehaviour
     public float targetDistanceForceMultiplier = 3f;
     public float minTargetDistance = 0.3f;
     
+    [Header("Target Point")]
+    public bool isDeterministic = true;
+    public int currentTargetNumber = 0;
+
     private bool isSpinning = false;
     private bool isSlowingDown = false;
     private bool isTargetingEnabled = false;
@@ -186,10 +188,10 @@ public class RouletteWheelController : MonoBehaviour
         
         float currentTargetForce = Mathf.Lerp(initialTargetForce, maxTargetForce, forceMultiplier);
         
-        // Force increase
+        // Inversed force calculation - force DECREASES as distance decreases
         if (distanceToTarget < 1.0f)
         {
-            float distanceFactor = Mathf.Clamp01(1.0f - (distanceToTarget - minTargetDistance) / (1.0f - minTargetDistance));
+            float distanceFactor = Mathf.Clamp01((distanceToTarget - minTargetDistance) / (1.0f - minTargetDistance));
             currentTargetForce *= (1.0f + distanceFactor * targetDistanceForceMultiplier);
         }
         
@@ -235,10 +237,6 @@ public class RouletteWheelController : MonoBehaviour
         isSpinning = false;
         isSlowingDown = false;
         isTargetingEnabled = false;
-        
-
-    
-
     }
     
     private IEnumerator SpinWheel(float totalDuration)

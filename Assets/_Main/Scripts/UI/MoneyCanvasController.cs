@@ -12,7 +12,7 @@ public class MoneyCanvasController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI winningAmountText;
     
     [Header("Settings")]
-    [SerializeField] private int startingBalance = 1000;
+    private int startingBalance = 10000;
     [SerializeField] private float winningPanelDisplayTime = 5f; 
     
     private int currentBalance;
@@ -147,7 +147,7 @@ public class MoneyCanvasController : MonoBehaviour
     {
         if (balanceText)
         {
-            balanceText.text = $"{currentBalance}";
+            balanceText.text = $"${currentBalance}";
         }
     }
     
