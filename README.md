@@ -17,7 +17,7 @@ This roulette game provides players with an authentic casino experience, complet
 ### Placing Bets
 1. **Select Chip Value**: Use the buttons at the bottom of the screen to select your bet amount (10, 50, 100, or 200).
 2. **Place Chips**: Tap/click on any betting position on the table to place a chip.
-3. **Remove Chips**: Long press on a chip to pick it up. You can either place it somewhere else or tap elsewhere to return it.
+3. **Remove Chips**: Long press on a chip to pick it up. You can place it somewhere else.
 4. **Cancel All Bets**: Press the "Cancel" button to remove all chips from the table.
 
 ### Spinning the Wheel
